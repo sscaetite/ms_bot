@@ -7,6 +7,10 @@ const { JSDOM } = jsdom;
 app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => {
+    res.send("Tá rodando")
+})
+
 app.get('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
         
     const htmlObject = new JSDOM(req.body);
@@ -42,4 +46,5 @@ app.get('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
 });
 
 app.listen(3000, () => {
+    console.log("Tá funfando")
 });
