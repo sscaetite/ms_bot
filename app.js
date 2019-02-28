@@ -30,7 +30,7 @@ app.get('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
         const formatedHtml = {};
         formatedHtml.nome = returnItemByID("#nome");
         formatedHtml.whatsapp = returnItemByID("#whatsapp");
-        formatedHtml.tudo = "listaID";
+        formatedHtml.tudo = listaID();
         
         return formatedHtml;
     };
