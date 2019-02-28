@@ -7,10 +7,8 @@ const { JSDOM } = jsdom;
 app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const sinalDeMasVindas = new JSDOM('<h2>Você não deveria estar aqui!</h2><br><h3>Volte para o site da <a href="http://habits.usp.br">Habits</a></h3>');
-
 app.get('/', (req, res) => {
-    res.send(sinalDeMasVindas);
+    res.send("Você não deveria estar aqui");
 })
 
 app.get('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
