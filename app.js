@@ -16,22 +16,24 @@ app.get('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
         return htmlObject.window.document.querySelector(htmlId).textContent;
     };
 
-    const listarIDs = () => {
+    /*const listarIDs = () => {
 
-        return htmlObject.window.document.querySelectorAll('*[id]').textContent;
-        
+        // return htmlObject.window.document.querySelectorAll('*[id]').textContent;
+        //return htmlObject.window.document.querySelectorAll('div');
+        //return htmlObject.window.document.querySelector('div');
     }
 
-    //Converte um documento HTML em um objeto JSON
-    const returnJSONFromHtml = () => {
+    const listaID = listarIDs();*/
 
-        const listaID = listarIDs();
+    //Converte um documento HTML em um objeto JSON
+    const returnJSONFromHtml = () => {     
 
         const formatedHtml = {};
+
         formatedHtml.nome = returnItemByID("#nome");
+        formatedHtml.email = returnItemByID("#email");
         formatedHtml.whatsapp = returnItemByID("#whatsapp");
-        formatedHtml.tudo = listaID();
-        
+                
         return formatedHtml;
     };
 
@@ -40,5 +42,4 @@ app.get('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log('Rodando');
 });
