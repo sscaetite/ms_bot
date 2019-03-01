@@ -11,6 +11,11 @@ app.get('/', (req, res) => {
     res.send("Você não deveria estar aqui");
 })
 
+//Rota para o Léo hétero entrar
+app.get('/leosoares', (req,res) => {
+    res.send("Leo, vc é um amor! E gado demais");
+})
+
 app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
 
     const htmlObject = new JSDOM(req.body);
@@ -18,8 +23,8 @@ app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
     //Retorna o conteúdo de texto presente numa tag com determinada ID do DOM
     const returnItemByID = (htmlId) => {
         const selector = htmlObject.window.document.querySelector(htmlId);
-        if(!selector) return ""
-        return selector.textContent
+        if(!selector) return "";
+        return selector.textContent;
     };
 
     //Converte um documento HTML em um objeto JSON
@@ -36,7 +41,7 @@ app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
         formatedHtml.escolaPrimeiroParticipante = returnItemByID("#escola-primeiro-participante");
         formatedHtml.cursoPrimeiroParticipante = returnItemByID("#curso-primeiro-participante");
 
-        formatedHtml.cursoPrimeiroParticipante = returnItemByID("#tipo-inscricao")
+        formatedHtml.cursoPrimeiroParticipante = returnItemByID("#tipo-inscricao");
 
         formatedHtml.nomeSegundoParticipante = returnItemByID("#nome-segundo-participante");
         formatedHtml.emailSegundoParticipante = returnItemByID("#email-segundo-participante");
