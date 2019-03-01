@@ -12,25 +12,18 @@ app.get('/', (req, res) => {
 })
 
 app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
-        
+
     const htmlObject = new JSDOM(req.body);
 
     //Retorna o conteúdo de texto presente numa tag com determinada ID do DOM
     const returnItemByID = (htmlId) => {
-        return htmlObject.window.document.querySelector(htmlId).textContent;
+        const selector = htmlObject.window.document.querySelector(htmlId);
+        if(!selector) return ""
+        return selector.textContent
     };
 
-    /*const listarIDs = () => {
-
-        // return htmlObject.window.document.querySelectorAll('*[id]').textContent;
-        //return htmlObject.window.document.querySelectorAll('div');
-        //return htmlObject.window.document.querySelector('div');
-    }
-
-    const listaID = listarIDs();*/
-
     //Converte um documento HTML em um objeto JSON
-    const returnJSONFromHtml = () => {     
+    const returnJSONFromHtml = () => {
 
         const formatedHtml = {};
 
@@ -88,7 +81,7 @@ app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
         formatedHtml.recomendacaoAmigo = returnItemByID("#recomendacao-amigo");
         formatedHtml.recomendacaoFacebook = returnItemByID("#recomendacao-facebook");
         formatedHtml.recomendacaoEvento = returnItemByID("#recomendacao-evento");
-                
+
         return formatedHtml;
     };
 
@@ -96,6 +89,6 @@ app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
 
 });
 
-app.listen(80, () => {
+app.listen(3000, () => {
     console.log("Tá funfando")
 });
