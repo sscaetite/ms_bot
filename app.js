@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.send("Você não deveria estar aqui");
 })
 
-app.get('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
+app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
         
     const htmlObject = new JSDOM(req.body);
 
