@@ -89,6 +89,6 @@ app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {
 
 });
 
-app.listen(3000, () => {
+app.listen(80, () => {
     console.log("Tá funfando")
 });
