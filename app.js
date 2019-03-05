@@ -44,15 +44,13 @@ app.post('/inscricao', (req, res) => {
     const listAllIds = () => {
         let allDivIds = [];
         let initialPos = 0;
-        let finalPos = 0;       
-        
+        let finalPos = 0;
         while(initialPos != -1 && finalPos != -1) {
 
             initialPos = textoReq.indexOf("id=#", finalPos);
             finalPos = textoReq.indexOf("##", initialPos + 4);
             allDivIds[allDivIds.length] = textoReq.substring(initialPos + 4, finalPos)
             initialPos = textoReq.indexOf("id=#", finalPos);
-            
         }
 
         return allDivIds;
@@ -88,10 +86,10 @@ app.post('/inscricao', (req, res) => {
         return formatedHtml;
     };
 
-    res.send(returnJSONFromHtml());
+    res.send(listAllIds());
 
 });
 
-app.listen(port, () => {
+app.listen(80, () => {
     console.log("Tá funfando")
 });
