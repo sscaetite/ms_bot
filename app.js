@@ -18,7 +18,7 @@ app.get('/leosoares', (req,res) => {
     res.send("Leo, vc é um amor! E gado demais");
 })
 
-app.post('/inscricao/desafio-de-impacto/2019_2', (req, res) => {    
+app.post('/inscricao', (req, res) => {    
 
     const htmlObject = new JSDOM(req.body);
 
