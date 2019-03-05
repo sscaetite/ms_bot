@@ -12,6 +12,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jsdom": "^13.2.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "plaintextparser": "^1.0.3"
   }
 }

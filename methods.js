@@ -1,13 +1,15 @@
-const parseIdNameToCamelCase = (nomeId) => {
+
+module.exports = (nomeId) => {
     
-    nomeId = nomeId.toString();
-    for(let i = 0; i < nomeId.lenght; i++) {
+    if(nomeId) nomeId = nomeId.toString();
+    else nomeId = "";
+
+    for(let i = 0; i < nomeId.length; i++) {
         if(nomeId[i] == "-") {
-            nomeId = nomeId.substr(0,i) + nomeId.charAt(i+1).toUpperCase() + nomeId.substr(i+2);
+            nomeId = nomeId.substr(1,i) + nomeId.charAt(i+1).toUpperCase() + nomeId.substr(i+2);
             i = i - 1;
         }
-        console.log(nomeId);
     };
 
-    
-}
+    return nomeId;
+};
