@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Retorna o conteúdo de texto presente numa tag com determinada ID do DOM
 const returnItemByID = (htmlId, objectHtml) => {
-    const selector = objectHtml.window.document.querySelector(htmlId);
-    if(!selector) return "-";
-    return selector.textContent;
+    const selectorOfId = objectHtml.window.document.querySelector(htmlId);
+    if(!selectorOfId) return "-";
+    return selectorOfId.textContent;
 };
 
 //Transforma o texto de uma req.body em string
