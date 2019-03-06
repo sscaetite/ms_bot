@@ -23,7 +23,7 @@ app.post('/inscricao', (req, res) => {
 
     //Retorna o conteúdo de texto presente numa tag com determinada ID do DOM
     const returnItemByID = (htmlId, objectHtml) => {
-        const selectorOfId = objectHtml.window.document.querySelector(htmlId);
+        let selectorOfId = objectHtml.window.document.querySelector(htmlId);
         if(!selectorOfId) return "-";
         return selectorOfId.textContent;
     };
@@ -89,7 +89,7 @@ app.post('/inscricao', (req, res) => {
     };
 
     const htmlJsdomObject = new JSDOM(req.body);    
-    const textoReq = transformReqBodyIntoString(JSON.stringify(req.body));
+    const textoReq = transformReqBodyIntoString(req.body);
     const listIds = listAllIds(textoReq);
     const reqResult = returnJSONFromHtml(listIds, htmlJsdomObject);
     res.send(reqResult);
