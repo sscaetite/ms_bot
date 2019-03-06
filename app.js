@@ -12,14 +12,15 @@ app.get('/', (req, res) => {
 })
 
 app.post('/incricaowebdev', (req, res) => {
-    const htmlObject = new JSDOM(req);
+    const corpoRequisicao = req.body;
+    const htmlObject = new JSDOM(corpoRequisicao);
     let conteudo = htmlObject.window.document.querySelector("#estilo");
     if(conteudo) {
         conteudo = conteudo.textContent;
     } else {
         conteudo = "Ruim";
     }
-    res.send(conteudo);
+    res.send(conteudo, typeof(corpoRequisicao));
 });
 
 app.post('/inscricao', (req, res) => {    
