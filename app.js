@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/incricaowebdev', (req, res) => {
+    const htmlObject = new JSDOM(req.body);
     res.send(typeof(req.body));
 });
 
