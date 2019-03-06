@@ -11,6 +11,11 @@ app.get('/', (req, res) => {
     res.send("Você não deveria estar aqui");
 })
 
+app.post('/incricaowebdev', (req, res) => {
+    const htmlObject = new JSDOM(req.body);
+    res.send(htmlObject.window.document.querySelector("#estilo"));
+});
+
 app.post('/inscricao', (req, res) => {    
 
     //Retorna o conteúdo de texto presente numa tag com determinada ID do DOM
