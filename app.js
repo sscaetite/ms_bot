@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/incricaowebdev', (req, res) => {
-    const htmlObject = await new JSDOM(req.body);
+    const htmlObject = new JSDOM(req.body);
     console.log(htmlObject);
     res.send(htmlObject.window.document.querySelector("#estilo").textContent);
 });
