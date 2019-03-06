@@ -144,10 +144,7 @@ app.post('/inscricao', (req, res) => {
 
     res.send(returnJSONFromHtml(listIds, htmlJsdomObject));
 
-    console.log(listIds)
-
 });
 
 app.listen(80, () => {
-    console.log("Tá funfando")
 });
