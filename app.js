@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/incricaowebdev', (req, res) => {
-    const htmlObject = new JSDOM(req.body);
-    let conteudo = htmlObject.window.document.querySelector("div");
+    const htmlObject = new JSDOM(req);
+    let conteudo = htmlObject.window.document.querySelector("#estilo");
     if(conteudo) {
         conteudo = conteudo.textContent;
     } else {
