@@ -14,8 +14,11 @@ app.get('/', (req, res) => {
 app.post('/incricaowebdev', (req, res) => {
     const htmlObject = new JSDOM(req.body);
     let conteudo = htmlObject.window.document.querySelector("div");
-    if(conteudo) conteudo = conteudo.textContent;
-    else conteudo = "Ruim"
+    if(conteudo) {
+        conteudo = conteudo.textContent;
+    } else {
+        conteudo = "Ruim";
+    }
     res.send(conteudo);
 });
 
