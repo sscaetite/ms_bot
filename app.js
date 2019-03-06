@@ -20,7 +20,7 @@ app.post('/incricaowebdev', (req, res) => {
     } else {
         conteudo = "Ruim";
     }
-    res.send(conteudo, typeof(corpoRequisicao));
+    res.send(`${conteudo}, ${typeof(corpoRequisicao)}`);
 });
 
 app.post('/inscricao', (req, res) => {    
