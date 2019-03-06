@@ -45,8 +45,8 @@ const listAllIds = (textoRequest) => {
         finalPos = textoRequest.indexOf("##", initialPos + 4);
         allDivIds[allDivIds.length] = textoRequest.substring(initialPos + 4, finalPos)
         initialPos = textoRequest.indexOf("id=#", finalPos);
-    }
 
+    }
     return allDivIds;
 
 }
@@ -69,11 +69,9 @@ const parseIdNameToCamelCase = (nomeId) => {
 const returnJSONFromHtml = (allIdsList, htmlObject) => {
 
     const formatedHtml = {};   
-
     for(let i = 0; i  < allIdsList.length; i++) {
         formatedHtml[parseIdNameToCamelCase(allIdsList[i].substring(1, allIdsList[i].length))] = returnItemByID(allIdsList[i], htmlObject);
-    }
-    
+    }    
     return formatedHtml;
 };
 
@@ -83,66 +81,11 @@ app.get('/', (req, res) => {
 
 app.post('/inscricao', (req, res) => {    
 
-    const htmlJsdomObject = new JSDOM(req.body);
-    
-    const textoReq = transformReqBodyIntoString(req.body);
-
-    //const listIds = listAllIds(textoReq)
-    const listIds = [ '#nome-programa',
-  '#nome-primeiro-participante',
-  '#cpf-primeiro-participante',
-  '#email-primeiro-participante',
-  '#telefone-primeiro-participante',
-  '#redes-primeiro-participante',
-  '#tipo-primeiro-participante',
-  '#estudo-primeiro-participante',
-  '#escola-primeiro-participante',
-  '#curso-primeiro-participante',
-  '#tipo-inscricao',
-  '#nome-segundo-participante',
-  '#cpf-segundo-participante',
-  '#email-segundo-participante',
-  '#telefone-segundo-participante',
-  '#redes-segundo-participante',
-  '#tipo-segundo-participante',
-  '#estudo-segundo-participante',
-  '#escola-segundo-participante',
-  '#curso-segundo-participante',
-  '#nome-terceiro-participante',
-  '#cpf-terceiro-participante',
-  '#email-terceiro-participante',
-  '#telefone-terceiro-participante',
-  '#redes-terceiro-participante',
-  '#tipo-terceiro-participante',
-  '#estudo-terceiro-participante',
-  '#escola-terceiro-participante',
-  '#curso-teceiro-participante',
-  '#nome-quarto-participante',
-  '#cpf-quarto-participante',
-  '#email-quarto-participante',
-  '#telefone-quarto-participante',
-  '#redes-quarto-participante',
-  '#tipo-quarto-participante',
-  '#estudo-quarto-participante',
-  '#escola-quarto-participante',
-  '#curso-quarto-participante',
-  '#nome-quinto-participante',
-  '#cpf-quinto-participante',
-  '#email-quinto-participante',
-  '#telefone-quinto-participante',
-  '#redes-quinto-participante',
-  '#tipo-quinto-participante',
-  '#estudo-quinto-participante',
-  '#escola-quinto-participante',
-  '#curso-quinto-participante',
-  '#nome-equipe',
-  '#motivacao-equipe',
-  '#como-ficou-sabendo',
-  '#recomendacao-amigo',
-  '#recomendacao-facebook',
-  '#recomendacao-evento' ]
-
-    res.send(returnJSONFromHtml(listIds, htmlJsdomObject));
+    const htmlJsdomObject = new JSDOM(req.body);    
+    const textoReq = transformReqBodyIntoString(JSON.stringify(req.body));
+    const listIds = listAllIds(textoReq);
+    const reqResult = returnJSONFromHtml(listIds, htmlJsdomObject);
+    res.send(reqResult);
 
 });
 
