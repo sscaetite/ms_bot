@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-app.use(bodyParser.text({ type: 'text/html' }));
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.text({ type: 'text/html' }));
+//app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
     res.send("Você não deveria estar aqui");
