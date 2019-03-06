@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.send("Você não deveria estar aqui");
 })
 
-app.post('/incricaowebdev', (req, res) => {
+app.get('/incricaowebdev', (req, res) => {
     const corpoRequisicao = req.body;
     const htmlObject = new JSDOM(corpoRequisicao);
     let conteudo = htmlObject.window.document.querySelector("#estilo");
