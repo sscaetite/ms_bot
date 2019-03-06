@@ -1,5 +1,5 @@
 
-module.exports = (nomeId) => {
+/*module.exports = (nomeId) => {
     
     if(nomeId) nomeId = nomeId.toString();
     else nomeId = "";
@@ -12,4 +12,4 @@ module.exports = (nomeId) => {
     };
 
     return nomeId;
-};
+};*/
