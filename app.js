@@ -11,19 +11,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const returnItemByID = (htmlId, objectHtml) => {
     let selectorOfId = objectHtml.window.document.querySelector(htmlId);
     if(!selectorOfId) return "-";
+    if(selectorOfId.textContent == "") return "-";
     return selectorOfId.textContent;
 };
 
 //Transforma o texto de uma req.body em string
-/*const transformReqBodyIntoString = (bodyRequest) => {
+const transformReqBodyIntoString = (bodyRequest) => {
     let textString = '';
     for (let i = 0; bodyRequest[i] != "*"; i++) {
         if(bodyRequest[i] != "\"" && bodyRequest[i] !== "\n" && bodyRequest[i] !== "\r") textString = textString + bodyRequest[i];
         if(bodyRequest[i] == "\"") textString = textString + "##";
     }
     return textString;
-}*/
-
+}/*
 const transformReqBodyIntoString = (bodyRequest) => {
     let textString = bodyRequest;
     textString = textString.replace(/\\/g, '');
@@ -31,7 +31,7 @@ const transformReqBodyIntoString = (bodyRequest) => {
     textString = textString.replace(/\r/g, '');
     textString = textString.replace(/"/g, '##');
     return textString;
-}
+}*/
 
 //Lista todas as IDs de uma req.body
 const listAllIds = (textoRequest) => {
