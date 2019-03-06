@@ -12,8 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/incricaowebdev', (req, res) => {
-    const htmlObject = new JSDOM(req.body);
-    res.send(htmlObject.window.document.querySelector("#estilo").textContent);
+    res.send(typeof(req.body));
 });
 
 app.post('/inscricao', (req, res) => {    
