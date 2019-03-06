@@ -13,8 +13,8 @@ app.get('/', (req, res) => {
 
 app.post('/incricaowebdev', (req, res) => {
     const htmlObject = new JSDOM(req.body);
-    const conteudo = "";
-    if(htmlObject.window.document.querySelector("#estilo").textContent) conteudo = htmlObject.window.document.querySelector("#estilo").textContent;
+    const conteudo = htmlObject.window.document.querySelector("#estilo");
+    if(conteudo) conteudo = conteudo.textContent;
     res.send(conteudo);
 });
 
