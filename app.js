@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const returnItemByID = (htmlId, objectHtml) => {
     let selectorOfId = objectHtml.window.document.querySelector(htmlId);
     if(!selectorOfId) return null;
-    if(selectorOfId.textContent == "") return "-";
+    if(selectorOfId.textContent == "") return null;
     return selectorOfId.textContent;
 };
 
