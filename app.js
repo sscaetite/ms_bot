@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Retorna o conteúdo de texto presente numa tag com determinada ID do DOM
 const returnItemByID = (htmlId, objectHtml) => {
     let selectorOfId = objectHtml.window.document.querySelector(htmlId);
-    if(!selectorOfId) return null;
-    if(selectorOfId.textContent == "") return null;
+    if(!selectorOfId) return "";
+    if(selectorOfId.textContent == "") return "";
     return selectorOfId.textContent;
 };
 
